@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: traders-syndicate-webhook
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: STRIPE_SECRET_KEY
+        scope: build,runtime
+      - key: DISCORD_BOT_TOKEN
+        scope: build,runtime
+      - key: GUILD_ID
+        value: "1492355946750410825"
+      - key: WEBHOOK_SECRET
+        scope: build,runtime
+      - key: PORT
+        value: "3000"
